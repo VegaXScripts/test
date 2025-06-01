@@ -694,8 +694,16 @@ pos, -7, 0.5, -7)}):Play()
             dropdownArrow.Parent = dropdownButton
             
             local optionsFrame = Instance.new("Frame")
-            optionsFrame.Position = UDim2.new(0, 0, 0, -(#dropdownOptions * 25 + 2))
-            optionsFrame.Position = UDim2.new(0, 0, 1, 2)
+            local function updateDropdownPosition()
+            local dropdownPos = dropdownFrame.AbsolutePosition.Y
+            local windowBottom = self._window._mainFrame.AbsolutePosition.Y + self._window._mainFrame.AbsoluteSize.Y
+            local optionsHeight = #dropdownOptions * 25
+    if dropdownPos + optionsHeight > windowBottom - 50 then
+        optionsFrame.Position = UDim2.new(0, 0, 0, -(optionsHeight + 2))  -- Above dropdown
+    else
+        optionsFrame.Position = UDim2.new(0, 0, 1, 2)  -- Below dropdown (normal)
+    end
+end
             optionsFrame.BackgroundColor3 = COLORS.INPUT_BG
             optionsFrame.BorderSizePixel = 0
             optionsFrame.Visible = false
