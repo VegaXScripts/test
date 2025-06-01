@@ -257,8 +257,8 @@ function NovaLib:MakeWindow(options)
     
     local pagesContainer = Instance.new("Frame")
     pagesContainer.Name = "PagesContainer"
-    pagesContainer.Size = UDim2.new(1, -20, 1, -20)
-    pagesContainer.Position = UDim2.new(0, 10, 0, 10)
+    pagesContainer.Size = UDim2.new(1, -16, 1, -16)
+    pagesContainer.Position = UDim2.new(0, 8, 0, 8)
     pagesContainer.BackgroundTransparency = 1
     pagesContainer.Parent = contentFrame
     
